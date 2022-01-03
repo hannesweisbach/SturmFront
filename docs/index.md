@@ -1,37 +1,36 @@
-## Welcome to GitHub Pages
+## SturmFront
 
-You can use the [editor on GitHub](https://github.com/hannesweisbach/SturmFront/edit/master/docs/index.md) to maintain and preview the content for your website in Markdown files.
+SturmFront is a DIY fan-controller for indoor sports, which adjusts fan speed according to your current heart rate.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+I use while riding Zwift. The advantages:
 
-### Markdown
+* **Never forget to turn on your fan.** SturmFront turns on your fan automatically.
+* **Never freeze your butt off during warming up.** SturmFront adjusts the fan speed to your current heart rate. Low heart rate means the fan spins slowly or is even off.
+* **Auto-adjusts during the ride.** No weird acrobatics during a ride or race to adjust your fan speed. Your fan already has adjustable speed, but it is almost out of reach? You have to lean awkwardly towards your fan, risking falling off your bike?
+* **Never freeze during cooldown.** Ride, race or workout is over? Especially in autumn or winter I was freezing if my fan was still going full blast.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+## Alternatives
 
-```markdown
-Syntax highlighted code block
+I developed SturmFront as a low-cost, DIY-version of the well-known Wahoo® KICKR Headwind. In contrast to the KICKR Headwind, SturmFront does not have an integrated fan, but can be thought of like a smart plug, but instead of WiFi it uses ANT+ and instead of simply on/off-control SturmFront offers adjustable power output. This allows SturmFront to turn any fan into a smart fan.
+Keith Wakeham developed also a DIY fan controller named [Maelstom](https://github.com/kwakeham/Maelstrom).
 
-# Header 1
-## Header 2
-### Header 3
 
-- Bulleted
-- List
+## Function
 
-1. Numbered
-2. List
+A short, probably not complete description of how SturmFront works.
 
-**Bold** and _Italic_ and `Code` text
+### Hardware
 
-[Link](url) and ![Image](src)
-```
+As basis for SturmFront I used a second-hand WiFi-enabled smart socket from the local classifieds. It cost me only 2,50€ and I got a living room suitable enclosure. I also re-used the components from the power supply. I couldn't re-use the SoC and/or WiFi chip, beacuse I needed ANT+ and Bluetooth connectivity. The electro-mechanical relay was also not of any use to me, because I needed phase control to be able to adjust the fan's speed.
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+TODO: add pictures
 
-### Jekyll Themes
+### Software
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/hannesweisbach/SturmFront/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+During development and testing of SturmFront it soon became obvious to me that speed control linearly proportinal to heart rate is insufficient.
+- First, I added a temperature input to the control software to compensate for colder air temperatures in winter and/or when my window is open. Temperature can be adjusted 5˚K intervals.
+- Second, instead of linearly mapping the heart rate to control the SSR, fan speed can now be adjusted 5 bpm increments.
 
-### Support or Contact
+SturmFront uses bilinear mapping to interpolate between 5˚K and 5 bpm values.
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+

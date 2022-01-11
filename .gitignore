@@ -1,3 +1,9 @@
+# macOS preview cache
+**/.DS_Store
+
+# vim tmp files
+**/*.sw?
+
 # Prerequisites
 *.d
 

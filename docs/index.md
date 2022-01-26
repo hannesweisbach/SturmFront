@@ -30,7 +30,28 @@ As basis for SturmFront I used a second-hand WiFi-enabled smart socket from the 
 
 I also re-used the components from the power supply. I couldn't re-use the SoC and/or WiFi chip, beacuse I needed ANT+ and Bluetooth connectivity. The electro-mechanical relay was also not of any use to me, because I needed phase control to be able to adjust the fan's speed.
 
-TODO: add pictures
+Before ordering a manufactured PCB, I isolation-milled an engineering prototype:
+
+<p align="middle">
+  <img src="images/prototype_pcb_front.jpeg" width="35%" alt="">
+  <img src="images/prototype_pcb_back.jpeg" width="35%" alt="">
+</p>
+
+Since the PCB is oddly-shaped with large radii all around plus a button, LED and screw holes all of whose locations have to match with the case, having a prototype allowed me to check all dimensions before ordering as well as to check if all components would still fit in the case height-wise. I was also able to check for errors and improvements in the PCB design. Lastly, I was able to polish the firmware before the final boards arrived.
+
+<p align="middle">
+  <img src="images/debug_case.jpeg" width="35%" alt="Isolation milled engineering prototype PCB in smart wifi plug case with oscilloscope probes and debug adapter attached.">
+</p>
+
+Note, that the outlet in the picture is not connected to mains, but to an isolation transformer for testing.
+
+Making a prototype turned out to be a good decision, since I found multiple errors in the PCB which I had fixed for the final, professionally manufactured PCB. I still managed to sneak a few issues in the final PCB. For example, the silkscreen of the pinout labels of the ISP-connector are hidden underneath the SSR. 😅
+
+<p align="middle">
+  <img src="images/pcb_front.jpeg" width="35%" alt="">
+  <img src="images/pcb_back.jpeg" width="35%" alt="">
+</p>
+
 
 ### Software
 

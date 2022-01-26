@@ -21,7 +21,14 @@ A short, probably not complete description of how SturmFront works.
 
 ### Hardware
 
-As basis for SturmFront I used a second-hand WiFi-enabled smart socket from the local classifieds. It cost me only 2,50€ and I got a living room suitable enclosure. I also re-used the components from the power supply. I couldn't re-use the SoC and/or WiFi chip, beacuse I needed ANT+ and Bluetooth connectivity. The electro-mechanical relay was also not of any use to me, because I needed phase control to be able to adjust the fan's speed.
+As basis for SturmFront I used a second-hand WiFi-enabled smart socket from the local classifieds. It cost me only 2,50€ and I got a living room suitable enclosure as well as the proper power socket connectors:
+
+<p align="middle">
+  <img src="images/wifi_front.jpeg" width="25%" alt="Front view of wifi smart socket with CEE 7/4 plug and CEE 7/16 socket.">
+  <img src="images/wifi_side.jpeg" width="25%" alt="Side view of wifi smark socket with CEE 7/4 plug and CEE 7/16 socket>
+</p>
+
+I also re-used the components from the power supply. I couldn't re-use the SoC and/or WiFi chip, beacuse I needed ANT+ and Bluetooth connectivity. The electro-mechanical relay was also not of any use to me, because I needed phase control to be able to adjust the fan's speed.
 
 TODO: add pictures
 

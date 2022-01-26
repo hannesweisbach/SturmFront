@@ -30,6 +30,17 @@ As basis for SturmFront I used a second-hand WiFi-enabled smart socket from the 
 
 I also re-used the components from the power supply. I couldn't re-use the SoC and/or WiFi chip, beacuse I needed ANT+ and Bluetooth connectivity. The electro-mechanical relay was also not of any use to me, because I needed phase control to be able to adjust the fan's speed.
 
+The whole circuit consists of a just a few building blocks:
+* an SSR with a snubber circuit
+* a module with an NRF82832 SoC with ANT+/BLE connectivity
+* a zero-crossing circuit to help the NRF control the SSR
+* power supply for the NRF
+
+![](images/sturmfront_schematic.png)
+There is a PDF of the schematic under [EDA/sturmfront.pdf](https://github.com/hannesweisbach/SturmFront/blob/master/EDA/sturmfront.pdf).
+
+Both power supply as well as zero cross detection are isolated, which makes this design relatively expensive, but also easier to work with, develop and debug. The Isolated DC/DC-converter as well as the 3.3V LDO are re-used, although I added a PI-filter to the LDO output and the NRF-module is not the best, layout-wise. I also reserved space for an LM75 temperature sensor, but I used to on-chip sensor of the NRF. I figured since the SoC spends most of the time in powerdown anyway the difference from ambient to junction should not be that much (~2K).
+
 Before ordering a manufactured PCB, I isolation-milled an engineering prototype:
 
 <p align="middle">
@@ -43,7 +54,7 @@ Since the PCB is oddly-shaped with large radii all around plus a button, LED and
   <img src="images/debug_case.jpeg" width="35%" alt="Isolation milled engineering prototype PCB in smart wifi plug case with oscilloscope probes and debug adapter attached.">
 </p>
 
-Note, that the outlet in the picture is not connected to mains, but to an isolation transformer for testing.
+Note that the outlet in the picture is not connected to mains but to an isolation transformer for testing.
 
 Making a prototype turned out to be a good decision, since I found multiple errors in the PCB which I had fixed for the final, professionally manufactured PCB. I still managed to sneak a few issues in the final PCB. For example, the silkscreen of the pinout labels of the ISP-connector are hidden underneath the SSR. 😅
 
